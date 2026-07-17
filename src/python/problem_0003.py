@@ -1,20 +1,23 @@
 import math
 
-goal = 600851475143
 
-primefactors = []
 
-def isPrime(number):
-    otherFactors = []
-    for factor in range(1,math.floor(math.sqrt(number))):
+def smallestPrime(number):
+    assert number >= 2
+    for factor in range(2, math.isqrt(number) + 1):
         if number % factor == 0:
-            otherFactors.append(factor)
-    if len(otherFactors) == 0:
-        return True
+            return factor
+    return number
 
-for factor in range(1, goal, 2):
-    if goal % factor == 0:
-        if isPrime(factor):
-            primefactors.append(factor)
 
-print(primefactors[-1])
+def main():
+    goal = 600851475143
+    while True:
+        prime = smallestPrime(goal)
+        if prime < goal:
+            goal //= prime
+        else:
+            return goal
+
+if __name__ == '__main__':
+    print(main())
