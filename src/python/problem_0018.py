@@ -38,7 +38,5 @@ while True:
     index += 1
     
     
-
-
 print(triangleArrangedList)
 
